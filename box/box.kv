@@ -1,0 +1,50 @@
+WindowManager:
+    Draw:
+    Draw2:
+<Draw>:
+    name : "draw"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "vertical"
+            Label:
+                text: "VN READLIST"
+                font_size: 50
+                size_hint: 1, 0.1        
+        BoxLayout:
+            orientation: "vertical"
+            padding: 50
+            spacing: 30
+            Button:
+                size_hint: 1, 0.5
+                pos_hint: {"center_x":.5}
+                text: "Search"
+                on_release: 
+                    app.root.current = "draw2"
+                    root.manager.transition.direction="left"
+            Button:
+                size_hint: 1, 0.5
+                pos_hint: {"center_x":.5}
+                text: "MyList"
+
+<Draw2>:
+    name : "draw2"
+    BoxLayout:
+        orientation: "vertical"
+        ScrollView:
+
+            bar_color: [0, 0, 255, 1]
+            bar_width: 12
+            GridLayout:
+                cols: 1 
+                size: (self.parent.width, self.parent.height-1)
+                id: container
+                size_hint_y: None
+                height: self.minimum_height
+                Label:
+                    size_hint: 1 ,None
+                    font_size: 30
+                    text: "Visual Novel Title"
+                AsyncImage:
+                    pos_hint: {"center_x":.5 }
+                    source : ('https://s2.vndb.org/cv/86/24286.jpg')
